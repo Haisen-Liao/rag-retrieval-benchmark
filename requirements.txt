@@ -1,8 +1,17 @@
-beir
-sentence-transformers
-faiss-cpu
-rank-bm25
-pyyaml
-tqdm
+# core
 numpy
 pandas
+tqdm
+pyyaml
+
+# retrieval
+rank-bm25
+faiss-cpu
+
+# models
+torch
+transformers
+sentence-transformers
+
+# beir benchmark
+beir

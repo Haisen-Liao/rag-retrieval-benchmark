@@ -1,16 +1,16 @@
 # RAG Retrieval Benchmark on BEIR
 
-This project benchmarks retrieval methods for Retrieval-Augmented Generation (RAG) using BEIR datasets.
+This repository benchmarks retrieval methods for Retrieval-Augmented Generation (RAG) on BEIR datasets, with a focus on lexical, dense, hybrid retrieval and reranking strategies.
 
 ## Datasets
-- **SciFact** (scientific claim verification)
-- **TREC-COVID** (biomedical literature retrieval, graded relevance)
+- **SciFact**: Scientific claim verification dataset
+- **TREC-COVID**: Biomedical literature retrieval dataset with graded relevance labels
 
 ## Retrieval Methods
-- BM25 (lexical retrieval)
-- Dense retrieval (bi-encoder + FAISS)
-- Hybrid retrieval (BM25 + Dense, alpha sweep)
-- Hybrid + Fusion Reranking (cross-encoder, lambda sweep)
+- **BM25** (lexical retrieval)
+- **Dense retrieval** (bi-encoder + FAISS)
+- **Hybrid retrieval** (BM25 + Dense, alpha sweep)
+- **Hybrid + Fusion Reranking** (cross-encoder reranker, lambda sweep)
 
 ## Models
 - Dense retriever: `BAAI/bge-small-en-v1.5`
@@ -19,16 +19,20 @@ This project benchmarks retrieval methods for Retrieval-Augmented Generation (RA
 ## Evaluation Metrics
 - Recall@K
 - MRR@10
-- Graded relevance handled via configurable `min_rel` threshold (important for TREC-COVID)
+- Graded relevance handled via configurable `min_rel` threshold  
+  (important for datasets such as TREC-COVID)
 
 ## Key Findings
 - Optimal hybrid weight (alpha) varies across datasets
-- Fusion reranking improves early ranking quality (MRR@10, Recall@10)
-- On datasets with many relevant documents per query (e.g., TREC-COVID), Recall@K values are inherently low and should be interpreted together with MRR/nDCG
+- Fusion reranking consistently improves early ranking quality (MRR@10, Recall@10)
+- For datasets with many relevant documents per query (e.g., TREC-COVID), Recall@K values are inherently low and should be interpreted together with MRR/nDCG-style metrics
 
-## Reproducibility
-Scripts are provided to:
-1. Download and preprocess BEIR datasets
-2. Build BM25 and FAISS indexes
-3. Run retrieval and reranking
-4. Evaluate results with configurable relevance thresholds
+---
+
+## Quickstart
+
+### 1. Environment setup
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
