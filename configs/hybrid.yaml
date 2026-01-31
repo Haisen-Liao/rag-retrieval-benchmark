@@ -1,0 +1,14 @@
+dataset: scifact
+
+retrieval:
+  type: hybrid
+  top_k: 100
+  alpha: 0.5
+  embedding_model: BAAI/bge-small-en-v1.5
+  faiss_index_path: indexes/faiss/scifact_docs.index
+  store_path: indexes/faiss/scifact_docs_store.jsonl
+  bm25_index_path: indexes/bm25/scifact_bm25.pkl
+
+eval:
+  ks: [1, 5, 10, 100]
+  mrr_k: 10

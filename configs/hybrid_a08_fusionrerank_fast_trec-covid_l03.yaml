@@ -1,0 +1,20 @@
+retrieval:
+  type: hybrid
+  top_k: 100
+  alpha: 0.8
+  embedding_model: BAAI/bge-small-en-v1.5
+  faiss_index_path: indexes/faiss/trec-covid_docs.index
+  store_path: indexes/faiss/trec-covid_docs_store.jsonl
+  bm25_index_path: indexes/bm25/trec-covid_bm25.pkl
+
+rerank:
+  enabled: true
+  mode: fusion
+  docs_path: data/processed/trec-covid/docs.jsonl
+  model_name: cross-encoder/ms-marco-MiniLM-L-6-v2
+  candidate_k: 20
+  top_k: 100
+  batch_size: 64
+  lambda: 0.3
+  minmax_norm: true
+  max_doc_chars: 1200

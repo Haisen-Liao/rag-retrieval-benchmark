@@ -1,0 +1,4 @@
+retrieval:
+  type: bm25
+  top_k: 100
+  bm25_index_path: indexes/bm25/trec-covid_bm25.pkl

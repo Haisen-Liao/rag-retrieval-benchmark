@@ -1,0 +1,17 @@
+retrieval:
+  type: hybrid
+  top_k: 200
+  alpha: 0.8
+  embedding_model: BAAI/bge-small-en-v1.5
+  faiss_index_path: indexes/faiss/scifact_docs.index
+  store_path: indexes/faiss/scifact_docs_store.jsonl
+  bm25_index_path: indexes/bm25/scifact_bm25.pkl
+
+rerank:
+  enabled: true
+  docs_path: data/processed/scifact/docs.jsonl
+  model_name: cross-encoder/ms-marco-MiniLM-L-12-v2
+  candidate_k: 50
+  top_k: 100
+  batch_size: 32
+

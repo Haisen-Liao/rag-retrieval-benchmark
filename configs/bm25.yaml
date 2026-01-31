@@ -1,0 +1,13 @@
+dataset: scifact
+
+paths:
+  processed_dir: data/processed/scifact
+
+retrieval:
+  type: bm25
+  top_k: 100
+  bm25_index_path: indexes/bm25/scifact_bm25.pkl
+
+eval:
+  ks: [1, 5, 10, 100]
+  mrr_k: 10

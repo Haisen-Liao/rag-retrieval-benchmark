@@ -1,0 +1,8 @@
+retrieval:
+  type: hybrid
+  top_k: 100
+  alpha: 0.2
+  embedding_model: BAAI/bge-small-en-v1.5
+  faiss_index_path: indexes/faiss/trec-covid_docs.index
+  store_path: indexes/faiss/trec-covid_docs_store.jsonl
+  bm25_index_path: indexes/bm25/trec-covid_bm25.pkl

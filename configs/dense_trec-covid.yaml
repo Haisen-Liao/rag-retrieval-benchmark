@@ -1,0 +1,12 @@
+dataset: trec-covid
+
+retrieval:
+  type: dense
+  top_k: 100
+  embedding_model: BAAI/bge-small-en-v1.5
+  faiss_index_path: indexes/faiss/trec-covid_docs.index
+  store_path: indexes/faiss/trec-covid_docs_store.jsonl
+
+eval:
+  ks: [1, 5, 10, 100]
+  mrr_k: 10

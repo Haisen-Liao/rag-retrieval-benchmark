@@ -1,0 +1,8 @@
+beir
+sentence-transformers
+faiss-cpu
+rank-bm25
+pyyaml
+tqdm
+numpy
+pandas

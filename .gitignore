@@ -1,0 +1,16 @@
+# virtual env
+.venv/
+env/
+
+# python cache
+__pycache__/
+*.pyc
+
+# data & experiments (do not upload)
+data/
+indexes/
+runs/
+results/
+
+# huggingface cache
+.cache/
